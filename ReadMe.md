@@ -8,6 +8,7 @@
 #### 1. Data pipeline
 - 2 versions
 - yelp-datapipeline.py: running on local, then manually input the .csv to the AWS S3 bucket defined by yourself
+- please download the dataset yourself, as github cannot accept data that is too big (even using lfs)
 ```bash
 # Please first download yelp dataset from: https://www.yelp.com/dataset
 # Please get the yelp_academic_dataset_review.json and yelp_academic_dataset_business.json
