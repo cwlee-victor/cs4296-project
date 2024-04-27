@@ -13,7 +13,7 @@
 # Please get the yelp_academic_dataset_review.json and yelp_academic_dataset_business.json
     # and put them at cs4296-project/
 # Then you need to create the environment, it is recommended to use conda
-conda create -n your_env pytohn=3.9
+conda create -n your_env python=3.9
 pip install -r requirements.txt
 # Yun can then try to run:
 python yelp-datapipeline.txt # on local
@@ -36,4 +36,7 @@ yelp-spark-local-ipynb # This is the PySpark local implementations.
 #### 3. Web dashboard
 - This is a dashboard implemented by Python flask, plotly and dash.
 - To show a use case for the cloud pipeline deployment
-
+```bash
+# Local deployment
+python app.py
+```
