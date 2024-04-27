@@ -6,15 +6,15 @@ import pandas as pd
 app = dash.Dash(__name__)
 
 # Load data from a CSV file
-df_top10_most_reviewed_business = pd.read_csv('s3://cs3103-yelp-raw/top10_most_reviewed_business.csv')
-df_top10_business_review = pd.read_csv('s3://cs3103-yelp-raw/top10_business_review.csv')
-df_top10_result_review = pd.read_csv('s3://cs3103-yelp-raw/top10_result_review.csv')
-df_city_review = pd.read_csv('s3://cs3103-yelp-raw/top10_city_review.csv')
-df_city_business_count = pd.read_csv('s3://cs3103-yelp-raw/top10_city_business_count.csv')
-df_business_stars_dist = pd.read_csv('s3://cs3103-yelp-raw/business_stars_dist.csv')
-df_sentiment_dist = pd.read_csv('s3://cs3103-yelp-raw/sentiment_dist.csv')
-df_review_stars_dist = pd.read_csv('s3://cs3103-yelp-raw/review_stars_dist.csv')
-df_nb_result = pd.read_csv('s3://cs3103-yelp-raw/result.csv')
+df_top10_most_reviewed_business = pd.read_csv('s3://cs3103-yelp-raw/top10_most_reviewed_business/part-00000-8ca38351-88a6-4abc-a86e-f67f3e448f0c-c000.csv')
+df_top10_business_review = pd.read_csv('s3://cs3103-yelp-raw/top10_business_review/part-00000-ca184e33-28b0-4aed-9d68-7f32c3a88106-c000.csv')
+df_top10_result_review = pd.read_csv('s3://cs3103-yelp-raw/top10_result_review/part-00000-100399e4-2cbe-4035-a528-42fa30de0f01-c000.csv')
+df_city_review = pd.read_csv('s3://cs3103-yelp-raw/top10_city_review/part-00000-49740ed1-60ca-4970-ab19-2536b044cc58-c000.csv')
+df_city_business_count = pd.read_csv('s3://cs3103-yelp-raw/top10_city_business_count/part-00000-f2f77bc9-358f-4334-9c2e-a25d59f0c8f2-c000.csv')
+df_business_stars_dist = pd.read_csv('s3://cs3103-yelp-raw/business_stars_dist/part-00000-3e250550-9911-4461-8a5b-a80dab1de381-c000.csv')
+df_sentiment_dist = pd.read_csv('s3://cs3103-yelp-raw/sentiment_dist/part-00000-ee4971c9-347a-4042-9334-208cd9926819-c000.csv')
+df_review_stars_dist = pd.read_csv('s3://cs3103-yelp-raw/review_stars_dist/part-00000-e4bb4208-e8f1-4cf3-9933-672cb8be9d70-c000.csv')
+df_nb_result = pd.read_csv('s3://cs3103-yelp-raw/result/part-00003-a3cfd44e-6a47-4bb2-9890-ae3d514f71ed-c000.csv')
 
 complement_accuracy = 1 - df_nb_result.loc[0, 'accuracy']
 error_data = {
