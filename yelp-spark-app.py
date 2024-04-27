@@ -67,31 +67,31 @@ if __name__ == "__main__":
         ("Naive Bayes Classification", nb_accuracy)
     ], ["model", "accuracy"])
 
-    result.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    result.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/result")
 
     top10_result_review = df.groupBy("name").agg(count("review_stars").alias("review_stars_total")).orderBy(col("review_stars_total").desc()).limit(10)
-    top10_result_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    top10_result_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/top10_result_review")
 
     top10_business_review = df.groupBy("name").agg(count("business_stars").alias("business_stars_total")).orderBy(col("business_stars_total").desc()).limit(10)
-    top10_business_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    top10_business_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/top10_business_review")
 
     top10_city_review = df.groupBy("city").agg(count("business_stars").alias("business_stars_total")).orderBy(col("business_stars_total").desc()).limit(10)
-    top10_city_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    top10_city_review.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/top10_city_review")
 
     review_stars_dist = df.groupBy("review_stars").agg(count("review_stars").alias("review_stars_total")).orderBy(col("review_stars").desc())
-    review_stars_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    review_stars_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/review_stars_dist")
 
     business_stars_dist = df.groupBy("business_stars").agg(count("business_stars").alias("business_stars_total")).orderBy(col("business_stars").desc())
-    business_stars_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    business_stars_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/business_stars_dist")
 
     top10_city_business_count = df.groupBy('city').count().sort(col("count").desc()).limit(10)
-    top10_city_business_count.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    top10_city_business_count.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/top10_city_business_count")
 
     top10_most_reviewed_business = df.groupBy(col('name'), col('review_count'), col('city')).agg(avg("review_stars").alias("review_stars_average")).orderBy(col("review_count").desc()).limit(10)
-    top10_most_reviewed_business.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    top10_most_reviewed_business.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/top10_most_reviewed_business")
 
     sentiment_dist = data.groupBy("sentiment").agg(count("sentiment").alias("sentiment_total")).orderBy(col("sentiment").desc())
-    sentiment_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw")
+    sentiment_dist.write.format("csv").option("header", "true").mode("overwrite").save("s3://cs3103-yelp-raw/sentiment_dist")
 
     spark.stop()
 
