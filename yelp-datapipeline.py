@@ -85,7 +85,7 @@ if __name__ == "__main__":
 
     print('Data transforming to .csv')
         
-    csv_path = 'data/yelp.csv'
+    csv_path = 'store/yelp.csv'
     joined_df.to_csv(csv_path, sep='|', index=False)
 
     print('Data transformed to .csv')
