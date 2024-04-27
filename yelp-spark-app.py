@@ -1,6 +1,6 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, when, count, avg
-from pyspark.ml.feature import Tokenizer
+from pyspark.ml.feature import Tokenizer, StopWordsRemover
 from pyspark.ml.feature import HashingTF, IDF, StringIndexer
 from pyspark.sql.types import FloatType, IntegerType
 from pyspark.ml.evaluation import MulticlassClassificationEvaluator
@@ -23,12 +23,16 @@ if __name__ == "__main__":
     df = df.withColumn("sentiment", when(df.review_stars >= 3.5, 1).otherwise(when(df.review_stars <= 2.5, -1).otherwise(0)))
 
     # Tokenize text
-    tokenizer = Tokenizer(inputCol="text", outputCol="words")
+    tokenizer = Tokenizer(inputCol="text", outputCol="tokens")
     df_tokens = tokenizer.transform(df)
+
+    # Stop word remove
+    stopwords_remover = StopWordsRemover(inputCol="tokens", outputCol="words")
+    filtered_data = stopwords_remover.transform(df_tokens)
 
     # HashingTF to convert text to numeric features
     hashingTF = HashingTF(inputCol="words", outputCol="rawFeatures", numFeatures=2**20)
-    featurized_data = hashingTF.transform(df_tokens)
+    featurized_data = hashingTF.transform(filtered_data)
 
     # IDF to rescale features
     idf = IDF(inputCol="rawFeatures", outputCol="features")
@@ -46,19 +50,14 @@ if __name__ == "__main__":
     label_model = label_stringIdx.fit(data)
     data = label_model.transform(data)
 
-    # Split data into training and test sets
     (train, test) = data.randomSplit([0.8, 0.2])
 
-    # Define the classifier
     nb = NaiveBayes(smoothing=1.0, modelType="multinomial")
 
-    # Train the model
     nbModel = nb.fit(train)
 
-    # Predict on the test set
     predictions = nbModel.transform(test)
 
-    # Evaluate model
     evaluator = MulticlassClassificationEvaluator(predictionCol="prediction")
     nb_accuracy = evaluator.evaluate(predictions, {evaluator.metricName: "accuracy"})
     print("Naive Bayes Classification Model Test Accuracy = %g" % nb_accuracy)

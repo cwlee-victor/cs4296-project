@@ -9,6 +9,8 @@ charset-normalizer==3.3.2
 click==8.1.7
 colorama==0.4.4
 comm @ file:///home/conda/feedstock_root/build_artifacts/comm_1710320294760/work
+contourpy==1.2.1
+cycler==0.12.1
 dash==2.16.1
 dash-core-components==2.0.0
 dash-html-components==2.0.0
@@ -18,8 +20,10 @@ decorator @ file:///home/conda/feedstock_root/build_artifacts/decorator_16415556
 docutils==0.16
 executing @ file:///home/conda/feedstock_root/build_artifacts/executing_1698579936712/work
 Flask==3.0.3
+fonttools==4.51.0
 idna==3.7
 importlib_metadata @ file:///home/conda/feedstock_root/build_artifacts/importlib-metadata_1710971335535/work
+importlib_resources==6.4.0
 ipykernel @ file:///D:/bld/ipykernel_1708996677248/work
 ipython @ file:///D:/bld/ipython_1680185618122/work
 itsdangerous==2.2.0
@@ -29,7 +33,9 @@ jmespath==1.0.1
 joblib==1.4.0
 jupyter_client @ file:///home/conda/feedstock_root/build_artifacts/jupyter_client_1710255804825/work
 jupyter_core @ file:///D:/bld/jupyter_core_1669775233774/work
+kiwisolver==1.4.5
 MarkupSafe==2.1.5
+matplotlib==3.8.4
 matplotlib-inline @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-inline_1713250518406/work
 nest_asyncio @ file:///home/conda/feedstock_root/build_artifacts/nest-asyncio_1705850609492/work
 nltk==3.8.1
@@ -38,6 +44,7 @@ packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_17100759
 pandas==2.2.2
 parso @ file:///home/conda/feedstock_root/build_artifacts/parso_1712320355065/work
 pickleshare @ file:///home/conda/feedstock_root/build_artifacts/pickleshare_1602536217715/work
+pillow==10.3.0
 plotly==5.21.0
 prompt-toolkit @ file:///home/conda/feedstock_root/build_artifacts/prompt-toolkit_1702399386289/work
 psutil @ file:///C:/Windows/Temp/abs_b2c2fd7f-9fd5-4756-95ea-8aed74d0039flsd9qufz/croots/recipe/psutil_1656431277748/work
@@ -45,6 +52,7 @@ pure-eval @ file:///home/conda/feedstock_root/build_artifacts/pure_eval_16428759
 py4j==0.10.9.7
 pyasn1==0.6.0
 Pygments @ file:///home/conda/feedstock_root/build_artifacts/pygments_1700607939962/work
+pyparsing==3.1.2
 pyspark==3.5.1
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1709299778482/work
 python-dotenv==1.0.1
@@ -70,4 +78,5 @@ tzdata==2024.1
 urllib3==1.26.18
 wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_1704731205417/work
 Werkzeug==3.0.2
+wordcloud==1.9.3
 zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1695255097490/work
