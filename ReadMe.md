@@ -37,6 +37,6 @@ yelp-spark-local-ipynb # This is the PySpark local implementations.
 - This is a dashboard implemented by Python flask, plotly and dash.
 - To show a use case for the cloud pipeline deployment
 ```bash
-# Local deployment
-python app.py
+# Local and cloud deployment
+python app.py # TODO: modify the path of data (local or s3?)
 ```
