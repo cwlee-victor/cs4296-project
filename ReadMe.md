@@ -1,4 +1,4 @@
-# 56611230 LEE CHUN WING CityU SDSC4296 Project Repo
+# 56611230 LEE CHUN WING CityU CS4296 Project Repo
 ## Technical project: Opinion Mining on Large-scale Business Review Data
 ### Project description:
 - Data pipeline of Yelp dataset from local to AWS (S3)
